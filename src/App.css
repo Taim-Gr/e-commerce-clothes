@@ -1,0 +1,147 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: archivo;
+  src: url("./fonts/archivo/Archivo-Regular.ttf");
+}
+@font-face {
+  font-family: satoshi;
+  src: url("./fonts/satoshi/Satoshi_Complete/Satoshi-Regular.otf");
+}
+@font-face {
+  font-family: archivo;
+  src: url("./fonts/archivo/Archivo-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: archivo;
+  src: url("./fonts/archivo/Archivo-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+body{
+  font-family: archivo;
+
+}
+.land-page{
+  
+    background: #F2F0F1;
+    /* url('./images/landPage.svg') right/cover no-repeat,
+      
+      z-index: -1; */
+  
+
+}
+.land-image{
+  background: url('./images/landPage.png') right/cover no-repeat;
+  
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: contain;
+  background-position: bottom right;
+}
+.shine-1{
+  background-image: url("./images/shine2.svg");
+}
+.shine-2{
+  background-image: url("./images/shine1.svg");
+}
+@media (max-width : 1410px) {
+  .shine-1{
+    display: none !important;
+  }
+}
+@media (max-width : 640px) {
+  .land-image{
+    background-size: contain;
+  background-position:bottom center;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  }
+}
+
+/* For WebKit browsers (Chrome, Safari, newer versions of Edge) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* For Firefox */
+.hide-scrollbar {
+  scrollbar-width: none !important;
+}
+
+/* For Internet Explorer and older Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none !important;
+}
+.footer-spans span , a{
+  cursor: pointer !important;
+}
+
+
+.skeleton{
+  transition: .5s;
+  animation: shimmer 1.5s infinite linear;
+  background-image: linear-gradient(
+    to right,
+    #f5f5f5 0%,    /* Lighter gray */
+    #e0e0e0 25%,   /* Medium gray (peak contrast) */
+    #f5f5f5 50%    /* Back to light gray */
+  );
+  background-size: 800px 100%; /* Wider gradient for smoother transition */
+}
+@keyframes shimmer {
+  0% {
+    background-position: -800px 0; /* Start further left */
+  }
+  100% {
+    background-position: 800px 0; /* Move further right */
+  }
+}
+.loaded{
+  animation: none !important;
+  opacity: 0 !important;
+}
+
+
+/*  */
+
+/*  */

@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "ratingValue": 4.5,
+      "name": "Sarah Johnson",
+      "customerOpinion": "Absolutely loved the service! The quality of the clothes is amazing and delivery was super fast."
+    },
+    {
+      "id": 2,
+      "ratingValue": 5,
+      "name": "David Lee",
+      "customerOpinion": "The best shopping experience I've ever had. Great styles and even better customer service!"
+    },
+    {
+      "id": 3,
+      "ratingValue": 4,
+      "name": "Emily Davis",
+      "customerOpinion": "Really happy with my purchase. Everything fits perfectly and looks even better in person."
+    },
+    {
+      "id": 4,
+      "ratingValue": 5,
+      "name": "Mohamed El-Sayed",
+      "customerOpinion": "I’ve recommended Shop.co to all my friends. Stylish, affordable, and fast delivery!"
+    },
+    {
+      "id": 5,
+      "ratingValue": 4.5,
+      "name": "Jessica Green",
+      "customerOpinion": "I’m blown away by the quality and style of the clothes I received. Exceeded expectations!"
+    },
+    {
+      "id": 6,
+      "ratingValue": 5,
+      "name": "Lucas Kim",
+      "customerOpinion": "Shop.co is now my go-to store. Everything is so trendy and comfy. Highly recommended!"
+    },
+    {
+      "id": 7,
+      "ratingValue": 4.5,
+      "name": "Olivia Brown",
+      "customerOpinion": "An amazing collection and fast delivery. I couldn't be happier with my new wardrobe!"
+    },
+    {
+      "id": 8,
+      "ratingValue": 4,
+      "name": "Ethan Miller",
+      "customerOpinion": "Great quality products at a fair price. I always find something that fits my style."
+    },
+    {
+      "id": 9,
+      "ratingValue": 5,
+      "name": "Ava Smith",
+      "customerOpinion": "Fantastic experience every time I shop here. The items are exactly as described and super stylish."
+    },
+    {
+      "id": 10,
+      "ratingValue": 4,
+      "name": "Benjamin Davis",
+      "customerOpinion": "Reliable service with good quality products. My go-to store for everyday fashion needs."
+    },
+    {
+      "id": 11,
+      "ratingValue": 4.5,
+      "name": "Mia Wilson",
+      "customerOpinion": "Loved the designs and affordable prices. Shopping here always brightens my day!"
+    },
+    {
+      "id": 12,
+      "ratingValue": 5,
+      "name": "Alexander Moore",
+      "customerOpinion": "Top-notch customer service and excellent quality. Every purchase feels like a treat."
+    },
+    {
+      "id": 13,
+      "ratingValue": 4,
+      "name": "Sophia Taylor",
+      "customerOpinion": "Very satisfied with the entire shopping experience. The site is user-friendly and the products are stylish."
+    },
+    {
+      "id": 14,
+      "ratingValue": 4.5,
+      "name": "Jacob Anderson",
+      "customerOpinion": "The products exceeded my expectations. Quick delivery and high quality make it a win-win!"
+    },
+    {
+      "id": 15,
+      "ratingValue": 5,
+      "name": "Isabella Thomas",
+      "customerOpinion": "Absolutely fantastic! The variety and quality of clothes are outstanding. I'll definitely shop again."
+    }
+  ]
+  
