@@ -8,7 +8,7 @@ import { Container } from "@mui/material";
 export default function Footer() {
   return (
     <div>
-      <div className="py-[30px] relative z-10 offers rounded-none sm:rounded-[30px] bg-black p-5 flex justify-center w-[100%] sm:w-[80%] flex-col md:justify-between md:flex-row items-center px-[40px] gap-3 mx-auto mb-[-75px] ">
+      <div className="my-[100px] py-[30px] relative z-10 offers rounded-none sm:rounded-[30px] bg-black p-5 flex justify-center w-[100%] sm:w-[80%] flex-col md:justify-between md:flex-row items-center px-[40px] gap-3 mx-auto mb-[-75px] ">
         <h3 className="text-[30px] text-white text-center md:text-left font-bold max-w-[400px]">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </h3>

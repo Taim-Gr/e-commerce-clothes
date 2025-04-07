@@ -19,6 +19,7 @@ export default function LatestProjects() {
         price={`$ ${el.price}`}
         description={el.description}
         warranty={el.warrantyInformation}
+        productId={el.id}
       />
     );
   });

@@ -19,6 +19,7 @@ export default function TopSelling() {
         price={`$ ${el.price}`}
         description={el.description}
         warranty={el.warrantyInformation}
+        productId={el.id}
       />
     );
   });

@@ -8,12 +8,11 @@ import DressStyle from "./components/Home-page/DressStyles";
 import { Container } from "@mui/material";
 import HappyCustomers from "./components/Home-page/HappyCustomers";
 import Footer from "./components/Main-components/Footer";
-
-function App() {
+import ProductInfo from "./components/product-details/ProductInfo";
+import { Route, Routes } from "react-router-dom";
+function Home() {
   return (
-    <div className="App relative">
-      <Menu />
-      <Header />
+    <div className="relative">
       <LandingPage />
       <Container maxWidth="xl">
         <LatestProjects />
@@ -21,6 +20,19 @@ function App() {
         <DressStyle />
         <HappyCustomers />
       </Container>
+    </div>
+  );
+}
+function App() {
+  return (
+    <div className="App relative">
+      <Menu />
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/productInfo/:productId" element={<ProductInfo />} />
+      </Routes>
       <Footer />
     </div>
   );

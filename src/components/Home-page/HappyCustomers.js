@@ -25,6 +25,7 @@ export default function HappyCustomers() {
       ratingValue={review.ratingValue}
       name={review.name}
       customerOpinion={review.customerOpinion}
+      width={"320px"}
     />
   ));
 
