@@ -4,8 +4,8 @@
 <hr />
 Stacks : 
 <br />
-<ul>
-  <li>HTML</li>
+<ul style=  "padding:0 ; margin:0">
+  <li >HTML</li>
   <li>CSS/TAILWIND</li>
   <li>JAVA SCRIPT</li>
   <li>REACT</li>
