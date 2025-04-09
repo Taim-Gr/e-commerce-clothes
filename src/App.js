@@ -10,6 +10,7 @@ import HappyCustomers from "./components/Home-page/HappyCustomers";
 import Footer from "./components/Main-components/Footer";
 import ProductInfo from "./components/product-details/ProductInfo";
 import { Route, Routes } from "react-router-dom";
+import CategoryPage from "./components/category-pages/CategoryPage";
 function Home() {
   return (
     <div className="relative">
@@ -31,6 +32,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/productInfo/:productId" element={<ProductInfo />} />
       </Routes>
       <Footer />

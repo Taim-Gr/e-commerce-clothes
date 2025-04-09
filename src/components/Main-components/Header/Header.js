@@ -5,6 +5,7 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import SearchIcon from "@mui/icons-material/Search";
 import { useMenu } from "../../../contexts/menuConttext";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 export default function Header() {
   const { dispatch } = useMenu();
   return (
@@ -20,9 +21,11 @@ export default function Header() {
           >
             <MenuIcon />
           </button>
-          <h3 className="logo text-[40px] max-sm:text-[28px] font-[archivo] font-extrabold">
-            SHOP.CO
-          </h3>
+          <Link to="/">
+            <h3 className="logo text-[40px] max-sm:text-[28px] font-[archivo] font-extrabold">
+              SHOP.CO
+            </h3>
+          </Link>
         </div>
         <ul className="font-[satoshi] hidden  gap-[24px] text-[16px] md:flex">
           <li>

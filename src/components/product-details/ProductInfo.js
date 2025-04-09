@@ -85,7 +85,7 @@ export default function ProductInfo() {
               onLoad={() => handleImageLoad("image0")}
               src={!loading ? productInfo.images[0] : null}
               alt="main"
-              className="h-[350px] w-auto rounded-[20px] object-cover"
+              className="h-[350px] w-[350px] sm:w-auto rounded-[20px] object-cover"
             />
             <div
               className="skeleton absolute top-0 left-0 w-full h-full bg-[#f0f0f0] z-10 transition-opacity duration-300 ease-in-out"
