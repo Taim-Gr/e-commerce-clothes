@@ -111,7 +111,7 @@ export default function Footer() {
             </div>
           </div>
         </Container>
-        <h1 className="text-[30px]">Created By TaimJr</h1>
+        <p>&copy; 2025 Taim Jaber. All rights reserved.</p>
       </div>
     </div>
   );

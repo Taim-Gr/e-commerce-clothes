@@ -52,7 +52,7 @@ export default function TopSelling() {
     return (
       <div className="w-full py-[30px] text-center">
         <CircularProgress size={60} />
-        <p className="mt-4 text-gray-600">Loading latest products...</p>
+        <p className="mt-4 text-gray-600">Loading Top Selling products...</p>
       </div>
     );
   }
