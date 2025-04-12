@@ -3,13 +3,24 @@ import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
 import { Divider } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTopSellingProducts } from "../../featuers/api/apiSlice";
+import {
+  fetchTopSellingProducts,
+  clearError,
+} from "../../featuers/api/apiSlice";
 import { useSnackbar } from "../../contexts/snackbarContext";
+import CircularProgress from "@mui/material/CircularProgress";
 export default function TopSelling() {
+  const dispatch = useDispatch();
   const { showSnackbar } = useSnackbar();
   // const [topSelling, setTopSelling] = useState([]);
   const topSelling = useSelector((state) => {
     return state.fetchSlice.topSellingProducsts;
+  });
+  const error = useSelector((state) => {
+    return state.fetchSlice.error;
+  });
+  const loading = useSelector((state) => {
+    return state.fetchSlice.loading;
   });
   const topSellingProducts = topSelling.map((el) => {
     return (
@@ -26,11 +37,25 @@ export default function TopSelling() {
     );
   });
   const baseUrl = "https://dummyjson.com";
+  useEffect(() => {
+    if (error) {
+      showSnackbar(`Error loading products: ${error}`, "error");
+      // Clear error after showing
+      dispatch(clearError());
+    }
+  }, [error, showSnackbar, dispatch]);
 
-  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchTopSellingProducts());
   }, []);
+  if (loading) {
+    return (
+      <div className="w-full py-[30px] text-center">
+        <CircularProgress size={60} />
+        <p className="mt-4 text-gray-600">Loading latest products...</p>
+      </div>
+    );
+  }
   return (
     <div id="onSale">
       <div className="w-full py-[30px]">

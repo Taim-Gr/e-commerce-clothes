@@ -8,7 +8,10 @@ import ProductCard from "../Home-page/ProductCard";
 export default function ProductCategoryPage() {
   const { gender } = useParams();
   const dispatch = useDispatch();
-  const { genderProducts, loading } = useSelector((state) => state.fetchSlice);
+  const { genderProducts, loading, error } = useSelector(
+    (state) => state.fetchSlice
+  );
+  console.log(error);
   const products = genderProducts[gender] || [];
 
   useEffect(() => {
@@ -29,7 +32,13 @@ export default function ProductCategoryPage() {
         <CircularProgress />
       </Container>
     );
-
+  if (error) {
+    return (
+      <div className="w-fit text-[30px] text-red-800 font-bold m-auto p-3">
+        {error}, pleae Try Again ...
+      </div>
+    );
+  }
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Typography
