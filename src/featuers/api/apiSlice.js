@@ -36,12 +36,13 @@ const getLatestProducts = async () => {
   }
 };
 
-const getReleatedProducts = async (category) => {
+const getReleatedProducts = async ({ category, title }) => {
   try {
     const response = await axios.get(
       `${baseUrl}/products/category/${category}?limit=4`
     );
-    return response.data.products;
+    const filtered = response.data.products.filter((el) => el.title !== title);
+    return filtered;
   } catch (error) {
     throw new Error(`Failed to fetch related products: ${error.message}`);
   }
@@ -87,9 +88,9 @@ export const fetchGenderProducts = createAsyncThunk(
 
 export const fetchReleatedProducts = createAsyncThunk(
   "products/releatedproducts",
-  async (category, { rejectWithValue }) => {
+  async ({ category, title }, { rejectWithValue }) => {
     try {
-      return await getReleatedProducts(category);
+      return await getReleatedProducts({ category, title });
     } catch (err) {
       return rejectWithValue(err.message);
     }

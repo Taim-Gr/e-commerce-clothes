@@ -8,6 +8,9 @@ export default function ReleatedProjects() {
   const category = useSelector((state) => {
     return state.fetchSlice.productInfo.category;
   });
+  const title = useSelector((state) => {
+    return state.fetchSlice.productInfo.title;
+  });
   const releatedProducts = useSelector((state) => {
     return state.fetchSlice.releatedProducts;
   });
@@ -30,7 +33,7 @@ export default function ReleatedProjects() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchReleatedProducts(category));
+    dispatch(fetchReleatedProducts({ category, title }));
   }, []);
   return (
     <div>
