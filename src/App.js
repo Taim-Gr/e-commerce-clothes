@@ -11,6 +11,9 @@ import Footer from "./components/Main-components/Footer";
 import ProductInfo from "./components/product-details/ProductInfo";
 import { Route, Routes } from "react-router-dom";
 import CategoryPage from "./components/category-pages/CategoryPage";
+import MyCart from "./components/cart/MyCart";
+import Snackbar from "@mui/material/Snackbar";
+import ProductCategoryPage from "./components/shop/ProductCategoryPage";
 function Home() {
   return (
     <div className="relative">
@@ -34,6 +37,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/productInfo/:productId" element={<ProductInfo />} />
+        <Route path="/cart" element={<MyCart />} />
+        <Route path="/shop/:gender" element={<ProductCategoryPage />} />
       </Routes>
       <Footer />
     </div>

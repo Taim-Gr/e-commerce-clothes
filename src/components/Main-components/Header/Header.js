@@ -6,6 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useMenu } from "../../../contexts/menuConttext";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 export default function Header() {
   const { dispatch } = useMenu();
   return (
@@ -27,16 +28,39 @@ export default function Header() {
             </h3>
           </Link>
         </div>
-        <ul className="font-[satoshi] hidden  gap-[24px] text-[16px] md:flex">
+        <ul className="font-[satoshi] hidden  gap-[24px] text-[16px] md:flex relative">
+          <span className="absolute"></span>
+
           <li>
-            <span>Shop</span>
-            <span>
-              <KeyboardArrowDownOutlinedIcon />
+            <span className="relative shop-btn">
+              <span className="absolute right-[-20px]">
+                <KeyboardArrowDownOutlinedIcon />
+              </span>
+              Shop
+              <ul className="absolute genders-type text-left top-[25px] z-[100] bg-black p-2 text-white">
+                <Link to="/shop/men">
+                  <li className="shop-option transition duration-300 hover:pl-1">
+                    Men
+                  </li>
+                </Link>
+                <hr />
+                <Link to="shop/women">
+                  <li className="shop-option transition duration-300 hover:pl-1">
+                    Womens
+                  </li>
+                </Link>
+              </ul>
             </span>
           </li>
-          <li>On Sale</li>
-          <li>New Arivals</li>
-          <li>Brands</li>
+          <HashLink smooth to="/#onSale">
+            <li className="ml-1">On Sale</li>
+          </HashLink>
+          <HashLink smooth to="/#New-Arrivals">
+            <li>New Arivals</li>
+          </HashLink>
+          <HashLink smooth to="/#Styles">
+            <li>Styles</li>
+          </HashLink>
         </ul>
         <div className=" hidden lg:block flex-1">
           <SearchProductsBar />
@@ -45,9 +69,11 @@ export default function Header() {
           <button className="block lg:hidden">
             <SearchIcon />
           </button>
-          <button>
-            <ShoppingCartOutlinedIcon />
-          </button>
+          <Link to="/cart">
+            <button>
+              <ShoppingCartOutlinedIcon />
+            </button>
+          </Link>
           <button>
             <AccountCircleOutlinedIcon />
           </button>

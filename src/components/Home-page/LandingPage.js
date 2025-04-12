@@ -4,7 +4,7 @@ import gucci from "../../images/brands/gucci.svg";
 import verscase from "../../images/brands/versace.svg";
 import prada from "../../images/brands/prada.svg";
 import zara from "../../images/brands/zara.svg";
-
+import WelcomeMessage from "./WelcomeMessage";
 function BrandsLine() {
   return (
     <div className="bg-black w-full py-4 flex justify-evenly flex-wrap gap-y-2">
@@ -20,6 +20,7 @@ function BrandsLine() {
 export default function LandingPage() {
   return (
     <div className="relative">
+      <WelcomeMessage />
       <div className="land-page h-auto flex-col items-center relative flex  -z-1 sm:flex-row sm:h-[calc(100vh_-_76px)] sm:justify-start">
         <div className="text-content items-center pl-0 pt-[64px] lg:px-[64px]  gap-[25px] relative flex flex-col justify-evenly h-full text-center sm:text-left z-10 sm:gap-0 sm:pl-[15px] sm:pb-[64px]">
           <h1

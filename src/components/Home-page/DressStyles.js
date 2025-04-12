@@ -13,7 +13,7 @@ export default function DressStyle() {
   ];
 
   return (
-    <div className="max-w-screen-xl mx-auto px-4">
+    <div className="max-w-screen-xl mx-auto px-4" id="Styles">
       <div className="py-8 bg-gray-200 rounded-3xl shadow-lg overflow-hidden">
         <h3 className="text-4xl font-bold py-6 text-center text-black">
           BROWSE BY DRESS DETAILS

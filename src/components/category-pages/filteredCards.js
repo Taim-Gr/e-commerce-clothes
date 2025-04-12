@@ -4,6 +4,7 @@ export default function FilteredCards() {
   const filteredResult = useSelector((state) => {
     return state.categorySlice.filteredResponse;
   });
+
   console.log("123", filteredResult);
   const cardsList = filteredResult.map((c) => {
     return (

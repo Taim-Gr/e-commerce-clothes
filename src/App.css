@@ -180,3 +180,35 @@ body{
   scrollbar-width: thin;            /* makes scrollbar thinner */
   scrollbar-color: #888 transparent; /* color of thumb and track */
 }
+.genders-type{
+  border-radius:15px;
+  
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 0px;
+  border-width:0px;
+  width: 0;
+
+  background-color: black;
+
+  width: 100px;
+  opacity: 0;
+  transition: .3s;
+  height: 0;
+  padding: 0;
+}
+.shop-btn{
+  cursor: pointer;
+}
+.shop-btn:hover .genders-type{
+  opacity: 1;
+  height: auto !important;
+  padding:10px 8px !important;
+}
+.shop-option{
+  transition: .3s !important;
+}
+.shop-option:hover{
+  transition: .3s !important;
+}

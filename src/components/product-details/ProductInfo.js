@@ -11,8 +11,11 @@ import { fetchProductInfo } from "../../featuers/api/apiSlice";
 import { cleanProductInfo } from "../../featuers/api/apiSlice";
 import ProductRating from "./ProductRating";
 import ReleatedProjects from "./ReleatedProjects";
-
+import { useSnackbar } from "../../contexts/snackbarContext";
+import CircularProgress from "@mui/material/CircularProgress";
+import { addToCart } from "../../featuers/api/cartSlice";
 export default function ProductInfo() {
+  const { showSnackbar } = useSnackbar();
   const { productId } = useParams();
   useEffect(() => {
     window.scrollTo({
@@ -54,6 +57,42 @@ export default function ProductInfo() {
 
   function handleImageLoad(id) {
     setIsImageLoading((prev) => ({ ...prev, [id]: false }));
+  }
+  const [cartNum, setCardNum] = useState(1);
+  useEffect(() => {
+    if (!localStorage.getItem("CartProducts")) {
+      localStorage.setItem("CartProducts", "[]");
+    }
+  }, []);
+  const cartState = useSelector((state) => state.cart.status);
+  const AddCartError = useSelector((state) => state.cart.error);
+  // const [cartState, setCardLoader] = useState(false);
+  function handleCartAdd() {
+    dispatch(
+      addToCart({
+        userId: "1",
+        products: { id: productId, quantity: cartNum },
+      })
+    );
+    if (cartState === "succeeded") {
+      showSnackbar("Item Has Been Added Succefully", "success");
+    }
+    if (cartState === "failed") {
+      showSnackbar(AddCartError, "error");
+    }
+  }
+
+  function handleMinusCart() {
+    setCardNum((pervNum) => {
+      if (cartNum > 1) {
+        return pervNum - 1;
+      } else {
+        return pervNum;
+      }
+    });
+  }
+  function handlePlusCart() {
+    setCardNum((pervNum) => pervNum + 1);
   }
 
   return (
@@ -205,16 +244,40 @@ export default function ProductInfo() {
             ) : (
               <>
                 <div className="ad-cart flex items-center px-[20px] py-[16px] bg-[#F0F0F0] rounded-[62px] w-[30%] justify-evenly">
-                  <span className="text-[30px] flex items-center">
+                  <span
+                    className="text-[30px] flex items-center cursor-pointer"
+                    onClick={() => {
+                      handleMinusCart();
+                    }}
+                  >
                     <RemoveIcon />
                   </span>
-                  <span className="text-[16px]">1</span>
-                  <span className="text-[30px] flex items-center">
+                  <span className="text-[16px]">{cartNum}</span>
+                  <span
+                    className="text-[30px] flex items-center cursor-pointer"
+                    onClick={() => {
+                      handlePlusCart();
+                    }}
+                  >
                     <AddIcon className="text-[30px]" />
                   </span>
                 </div>
-                <button className="bg-black text-white rounded-[62px] px-[54px] py-[16px] flex-1">
-                  Add To Cart
+                <button
+                  className="relative bg-black text-white rounded-[62px] px-[54px] py-[16px] flex items-center justify-between gap-x-[20px]"
+                  onClick={() => {
+                    handleCartAdd();
+                  }}
+                >
+                  <span className="pr-3">Add To Cart</span>
+                  <span
+                    className={`${
+                      cartState === "loading"
+                        ? " opacity-80"
+                        : "block opacity-0"
+                    } text-white absolute right-3 top-[50%] -translate-y-[50%] z-50`}
+                  >
+                    <CircularProgress size="30px" color="white" />
+                  </span>
                 </button>
               </>
             )}

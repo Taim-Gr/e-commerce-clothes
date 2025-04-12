@@ -7,16 +7,22 @@ import { MenuProvider } from "./contexts/menuConttext";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { SnackbarProvider } from "./contexts/snackbarContext";
+import AlertDialogProvider from "./contexts/dialogContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <MenuProvider>
-          <App />
-        </MenuProvider>
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <AlertDialogProvider>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <MenuProvider>
+              <App />
+            </MenuProvider>
+          </BrowserRouter>
+        </SnackbarProvider>
+      </AlertDialogProvider>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -34,6 +34,45 @@ const getReleatedProducts = async (category) => {
 
   return json;
 };
+const getGenderProducts = async (gender) => {
+  const categories = {
+    men: ["mens-shirts", "mens-shoes", "mens-watches"],
+    women: [
+      "womens-bags",
+      "womens-dresses",
+      "womens-jewellery",
+      "womens-shoes",
+      "womens-watches",
+    ],
+  };
+
+  let allProducts = [];
+
+  // Simple loop through each category
+  for (const category of categories[gender]) {
+    const response = await axios.get(
+      `${baseUrl}/products/category/${category}`
+    );
+    allProducts = [...allProducts, ...response.data.products];
+  }
+
+  return {
+    gender,
+    products: allProducts,
+  };
+};
+
+// Add new async thunk
+export const fetchGenderProducts = createAsyncThunk(
+  "products/genderProducts",
+  async (gender, { rejectWithValue }) => {
+    try {
+      return await getGenderProducts(gender);
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
 export const fetchReleatedProducts = createAsyncThunk(
   "products/releatedproducts",
   getReleatedProducts
@@ -53,6 +92,10 @@ export const fetchProductInfo = createAsyncThunk(
 export const apiSlice = createSlice({
   name: "apiSlice",
   initialState: {
+    genderProducts: {
+      men: [],
+      women: [],
+    },
     releatedProducts: [],
     topSellingProducsts: [],
     mostPupolarProducsts: [],
@@ -71,6 +114,8 @@ export const apiSlice = createSlice({
       availabilityStatus: "",
       shippingInformation: "",
     },
+    loading: false,
+    error: null,
   },
   reducers: {
     cleanProductInfo: (state, action) => {
@@ -90,6 +135,9 @@ export const apiSlice = createSlice({
         shippingInformation: "",
       };
     },
+    cleanGenderProducts: (state, action) => {
+      state.genderProducts = { men: [], women: [] };
+    },
   },
   extraReducers(builder) {
     builder
@@ -104,8 +152,20 @@ export const apiSlice = createSlice({
       })
       .addCase(fetchReleatedProducts.fulfilled, (state, action) => {
         state.releatedProducts = action.payload;
+      })
+      .addCase(fetchGenderProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchGenderProducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.genderProducts[action.payload.gender] = action.payload.products;
+      })
+      .addCase(fetchGenderProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
-export const { cleanProductInfo } = apiSlice.actions;
+export const { cleanProductInfo, cleanGenderProducts } = apiSlice.actions;
 export default apiSlice.reducer;

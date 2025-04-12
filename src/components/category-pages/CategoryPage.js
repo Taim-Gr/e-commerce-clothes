@@ -144,7 +144,7 @@ export default function CategoryPage({ category }) {
               </div>
             )}
           </div>
-          <div className="dress-style">
+          {/* <div className="dress-style">
             <RadioButtonsGroup
               title={"Dress Style :"}
               label1={"Casual"}
@@ -152,7 +152,7 @@ export default function CategoryPage({ category }) {
               label3={"Party"}
               label4={"Creative"}
             />
-          </div>
+          </div> */}
           <Button
             onClick={() => {
               handleFilterClicking();
